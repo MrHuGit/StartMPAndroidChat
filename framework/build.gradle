@@ -1,10 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion defaultConfigs.compileSdkVersion
     buildToolsVersion defaultConfigs.buildToolsVersion
     defaultConfig {
-        applicationId "com.android.jc.mp_android_chat"
         minSdkVersion defaultConfigs.minSdkVersion
         targetSdkVersion defaultConfigs.targetSdkVersion
         versionCode defaultConfigs.versionCode
@@ -12,6 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         flavorDimensions "versionCode"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,9 +25,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.support.appcompat
     implementation deps.support.recyclerview
-    implementation project(':MPChartLib')
-    implementation project(':framework')
 }
